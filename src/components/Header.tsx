@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { FileText, Video, Users, LogIn } from "lucide-react";
 
 const Header = () => {
@@ -20,12 +21,14 @@ const Header = () => {
         </nav>
         
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm">
-            <LogIn className="w-4 h-4" />
-            Sign In
+          <Button variant="ghost" size="sm" asChild>
+            <Link to="/login">
+              <LogIn className="w-4 h-4" />
+              Sign In
+            </Link>
           </Button>
-          <Button variant="hero" size="sm">
-            Get Started
+          <Button variant="hero" size="sm" asChild>
+            <Link to="/signup">Get Started</Link>
           </Button>
         </div>
       </div>
