@@ -23,8 +23,9 @@ import {
 
 const Workspace = () => {
   return (
-    <section className="py-20 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-subtle relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
@@ -36,7 +37,7 @@ const Workspace = () => {
             </p>
           </div>
 
-          <Card className="p-1 shadow-strong bg-background border-2">
+          <Card className="p-1 shadow-elevation bg-gradient-card border border-white/20 backdrop-blur-lg">
             <div className="grid lg:grid-cols-3 gap-1 h-[600px]">
               {/* Document Editor */}
               <div className="lg:col-span-2 bg-background rounded-lg p-6 space-y-4">

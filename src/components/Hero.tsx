@@ -4,8 +4,9 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   return (
-    <section className="pt-24 pb-16 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section className="pt-24 pb-16 bg-gradient-subtle relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-mesh opacity-50"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
@@ -15,9 +16,9 @@ const Hero = () => {
                   Real-time collaboration platform
                 </div>
                 
-                <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                <h1 className="text-5xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight">
                   Where documents and 
-                  <span className="bg-gradient-hero bg-clip-text text-transparent"> meetings</span> come to life
+                  <span className="bg-gradient-hero bg-clip-text text-transparent drop-shadow-sm"> meetings</span> come to life
                 </h1>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -54,21 +55,22 @@ const Hero = () => {
             </div>
             
             <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="relative rounded-2xl overflow-hidden shadow-strong">
+              <div className="relative rounded-3xl overflow-hidden shadow-elevation border border-white/20">
                 <img 
                   src={heroImage} 
                   alt="LiveDocs collaborative workspace" 
-                  className="w-full h-auto"
+                  className="w-full h-auto transform hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-accent/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/10"></div>
               </div>
               
               {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-background border border-border rounded-lg p-3 shadow-medium animate-bounce" style={{ animationDelay: '1s' }}>
-                <Users className="w-6 h-6 text-primary" />
+              <div className="absolute -top-4 -right-4 bg-gradient-card backdrop-blur-lg border border-white/20 rounded-xl p-4 shadow-glow animate-float" style={{ animationDelay: '1s' }}>
+                <Users className="w-6 h-6 text-primary drop-shadow-sm" />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-background border border-border rounded-lg p-3 shadow-medium animate-bounce" style={{ animationDelay: '1.5s' }}>
-                <Video className="w-6 h-6 text-success" />
+              <div className="absolute -bottom-4 -left-4 bg-gradient-card backdrop-blur-lg border border-white/20 rounded-xl p-4 shadow-glow animate-float" style={{ animationDelay: '1.5s' }}>
+                <Video className="w-6 h-6 text-success drop-shadow-sm" />
               </div>
             </div>
           </div>

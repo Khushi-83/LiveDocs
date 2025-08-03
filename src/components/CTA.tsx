@@ -4,11 +4,13 @@ import { ArrowRight, Zap, Users, FileText } from "lucide-react";
 
 const CTA = () => {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <Card className="relative overflow-hidden p-12 bg-gradient-hero text-white">
-            <div className="absolute inset-0 bg-black/10"></div>
+          <Card className="relative overflow-hidden p-12 bg-gradient-hero text-white border-0 shadow-elevation">
+            <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-white/5"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-1000"></div>
             <div className="relative z-10 text-center space-y-8">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-medium">
@@ -27,11 +29,11 @@ const CTA = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button variant="secondary" size="xl" className="group">
+                <Button variant="premium" size="xl" className="group">
                   Start your free trial
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10">
+                <Button variant="glass" size="xl" className="group">
                   Schedule a demo
                 </Button>
               </div>
@@ -53,8 +55,9 @@ const CTA = () => {
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-            <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+            <div className="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full blur-xl animate-float"></div>
+            <div className="absolute bottom-10 right-10 w-32 h-32 bg-white/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 right-20 w-16 h-16 bg-accent/30 rounded-full blur-lg animate-float" style={{ animationDelay: '2s' }}></div>
           </Card>
         </div>
       </div>

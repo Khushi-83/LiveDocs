@@ -86,13 +86,13 @@ const Features = () => {
     title: string, 
     description: string 
   }) => (
-    <Card className="p-6 hover:shadow-medium transition-all duration-300 group">
+    <Card className="p-6 hover:shadow-elevation hover:scale-[1.02] transition-all duration-300 group bg-gradient-card border border-white/10">
       <div className="flex items-start gap-4">
-        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-          <Icon className="w-6 h-6 text-primary" />
+        <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-glow">
+          <Icon className="w-6 h-6 text-white drop-shadow-sm" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+          <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{title}</h3>
           <p className="text-muted-foreground leading-relaxed">{description}</p>
         </div>
       </div>
@@ -100,8 +100,9 @@ const Features = () => {
   );
 
   return (
-    <section id="features" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="features" className="py-20 bg-background relative">
+      <div className="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
