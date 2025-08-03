@@ -1,73 +1,83 @@
-# Welcome to your Lovable project
+# 📄 LiveDocs
 
-## Project info
+**Version:** 1.1.1  
+**Tagline:** Real-Time Document Collaboration with Built-in Video Conferencing
 
-**URL**: https://lovable.dev/projects/26bc3ebf-a267-43b0-a253-4c84e6eb5fc8
+LiveDocs is a collaborative platform designed to streamline teamwork with **real-time document editing** and **integrated video conferencing**. Whether you're brainstorming, drafting proposals, or finalizing reports — LiveDocs keeps everyone connected, productive, and focused.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+### 📝 Document Collaboration
+- Real-time multi-user editing with live cursor updates
+- Rich-text formatting: headings, images, tables, links
+- Auto-save with complete version history and rollback
+- Easy sharing with granular permission settings
+- Fully responsive on desktop, tablet, and mobile
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/26bc3ebf-a267-43b0-a253-4c84e6eb5fc8) and start prompting.
+### 📹 Video Conferencing
+- HD video and crystal-clear audio with WebRTC
+- Screen sharing support
+- In-meeting file sharing and chat
+- Secure, encrypted calls with minimal latency
+- Supports multiple participants in a single call
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🔄 Unified Experience
+- Seamless integration of editing + conferencing in one view
+- Real-time sync between document changes and call events
+- Notifications for edits, joins, and system events
+- Secure authentication with OAuth 2.0 (Google)
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Frontend
+- **React.js** – Fast and dynamic UI
+- **Quill.js / Draft.js** – Rich text editing capabilities
+- **WebRTC** – Peer-to-peer video/audio calls
+- **WebSockets** – Live collaboration and sync
 
-Follow these steps:
+### Backend
+- **Appwrite** – User management, auth, and real-time DB
+- **Node.js + Express** – RESTful API server and session handling
+- **Operational Transformation (OT)** or **CRDTs** – Conflict-free collaborative editing
+- **PostgreSQL / MongoDB** – Persistent data storage
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Infrastructure
+- **Google Docs API** – Document interactions and syncing
+- **Google OAuth 2.0** – Secure authentication
+- **Cloud Storage (GCP / AWS S3)** – Document storage
+- **STUN / TURN Servers** – WebRTC NAT traversal
+- **Elasticsearch** – Real-time document search
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🔒 Security & Privacy
+- End-to-end encryption for video/audio streams
+- Encrypted document storage
+- Secure login with OAuth 2.0
+- Fine-grained access control for documents and meetings
+- GDPR-compliant data handling
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## ⚙️ Installation
+
+> 📌 LiveDocs is a full-stack application requiring both frontend and backend setup.
+
+```bash
+# Clone the repo MeghaKaushal19/LiveDocs https://share.google/DXoEPGLyOIjmCOUUm
+git clone https://github.com/your-org/LiveDocs.git
+cd LiveDocs
+
+# Frontend Setup
+cd client
+npm install
+npm start
+
+# Backend Setup
+cd ../server
+npm install
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/26bc3ebf-a267-43b0-a253-4c84e6eb5fc8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
