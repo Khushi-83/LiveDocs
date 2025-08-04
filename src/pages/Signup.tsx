@@ -30,29 +30,24 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-mesh flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
-      <div className="absolute top-20 left-20 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
-      
+    <div className="min-h-screen bg-white flex items-center justify-center p-4 relative">
       {/* Back Button */}
       <Link 
         to="/" 
-        className="absolute top-6 left-6 z-10 flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors"
+        className="absolute top-6 left-6 z-10 flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Home
       </Link>
 
       {/* Signup Card */}
-      <Card className="w-full max-w-md bg-glass backdrop-blur-xl border-white/20 shadow-elevation relative z-10">
+      <Card className="w-full max-w-md bg-white border shadow-lg relative z-10">
         <CardHeader className="text-center space-y-4">
-          <div className="mx-auto w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-glow">
+          <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center">
             <span className="text-2xl font-bold text-white">LD</span>
           </div>
           <div>
-            <CardTitle className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+            <CardTitle className="text-2xl font-bold text-foreground">
               Create Account
             </CardTitle>
             <CardDescription className="text-muted-foreground mt-2">
@@ -73,7 +68,7 @@ export default function Signup() {
                   value={formData.firstName}
                   onChange={(e) => handleInputChange("firstName", e.target.value)}
                   required
-                  className="bg-white/10 border-white/20 focus:border-primary/50 transition-colors"
+                  className="border-input focus:border-primary transition-colors"
                 />
               </div>
               <div className="space-y-2">
@@ -85,7 +80,7 @@ export default function Signup() {
                   value={formData.lastName}
                   onChange={(e) => handleInputChange("lastName", e.target.value)}
                   required
-                  className="bg-white/10 border-white/20 focus:border-primary/50 transition-colors"
+                  className="border-input focus:border-primary transition-colors"
                 />
               </div>
             </div>
@@ -99,7 +94,7 @@ export default function Signup() {
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
                 required
-                className="bg-white/10 border-white/20 focus:border-primary/50 transition-colors"
+                className="border-input focus:border-primary transition-colors"
               />
             </div>
             
@@ -113,7 +108,7 @@ export default function Signup() {
                   value={formData.password}
                   onChange={(e) => handleInputChange("password", e.target.value)}
                   required
-                  className="bg-white/10 border-white/20 focus:border-primary/50 transition-colors pr-10"
+                  className="border-input focus:border-primary transition-colors pr-10"
                 />
                 <button
                   type="button"
@@ -135,7 +130,7 @@ export default function Signup() {
                   value={formData.confirmPassword}
                   onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
                   required
-                  className="bg-white/10 border-white/20 focus:border-primary/50 transition-colors pr-10"
+                  className="border-input focus:border-primary transition-colors pr-10"
                 />
                 <button
                   type="button"
@@ -152,7 +147,7 @@ export default function Signup() {
                 id="terms"
                 checked={formData.acceptTerms}
                 onCheckedChange={(checked) => handleInputChange("acceptTerms", checked)}
-                className="border-white/20"
+                className="border-input"
               />
               <Label htmlFor="terms" className="text-sm text-foreground/90">
                 I agree to the{" "}
