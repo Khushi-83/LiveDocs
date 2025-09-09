@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import DocumentEditor from '@/components/DocumentEditor';
+import VideoConference from '@/components/VideoConference';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -110,6 +111,12 @@ const DocumentWorkspace = () => {
               <Button onClick={() => navigate('/')}>
                 Go to Dashboard
               </Button>
+            </div>
+          )}
+          {documentId && (
+            <div className="mt-6">
+              <h3 className="text-base font-semibold mb-2">Live Call</h3>
+              <VideoConference roomId={documentId} displayName={username} />
             </div>
           )}
         </Card>

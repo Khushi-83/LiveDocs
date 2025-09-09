@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import DocumentWorkspace from "./pages/DocumentWorkspace";
+import VideoCall from "./pages/VideoCall";
+import VideoLanding from "./pages/VideoLanding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/documents/:documentId" element={<DocumentWorkspace />} />
+          <Route path="/video" element={<VideoLanding />} />
+          <Route path="/video/:roomId" element={<VideoCall />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
