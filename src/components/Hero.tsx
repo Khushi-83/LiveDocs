@@ -32,9 +32,9 @@ const Hero = () => {
                   Start collaborating
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button variant="outline" size="xl" className="group">
+                <Button variant="outline" size="xl" className="group" onClick={() => window.location.assign('/meet')}>
                   <Play className="w-5 h-5" />
-                  Watch demo
+                  Start a meeting
                 </Button>
               </div>
               
@@ -54,7 +54,7 @@ const Hero = () => {
               </div>
             </div>
             
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-fade-in">
               <div className="relative rounded-3xl overflow-hidden shadow-elevation border border-white/20">
                 <img 
                   src={heroImage} 
@@ -66,10 +66,10 @@ const Hero = () => {
               </div>
               
               {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-gradient-card backdrop-blur-lg border border-white/20 rounded-xl p-4 shadow-glow animate-float" style={{ animationDelay: '1s' }}>
+              <div className="absolute -top-4 -right-4 bg-gradient-card backdrop-blur-lg border border-white/20 rounded-xl p-4 shadow-glow animate-float">
                 <Users className="w-6 h-6 text-primary drop-shadow-sm" />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-gradient-card backdrop-blur-lg border border-white/20 rounded-xl p-4 shadow-glow animate-float" style={{ animationDelay: '1.5s' }}>
+              <div className="absolute -bottom-4 -left-4 bg-gradient-card backdrop-blur-lg border border-white/20 rounded-xl p-4 shadow-glow animate-float">
                 <Video className="w-6 h-6 text-success drop-shadow-sm" />
               </div>
             </div>
