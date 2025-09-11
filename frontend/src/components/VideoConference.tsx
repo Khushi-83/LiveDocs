@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { createSignalingSocket, getSignalingUrl } from '@/meet/signaling';
 
 type Participant = { clientId: string; displayName?: string | null };
 
@@ -69,9 +70,8 @@ export default function VideoConference({ roomId, displayName, signalingUrl }: P
   }, [ensurePeer, send]);
 
   useEffect(() => {
-    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-    const url = signalingUrl || `${protocol}://${window.location.host}`;
-    const ws = new WebSocket(url);
+    const url = signalingUrl || getSignalingUrl();
+    const ws = createSignalingSocket(url);
     wsRef.current = ws;
     setWsStatus('connecting');
 

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { getSignalingUrl } from '@/meet/signaling';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,6 +22,7 @@ const MeetLanding = () => {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <Card className="w-full max-w-2xl p-8">
         <h1 className="text-3xl font-bold mb-6">Video calls and meetings</h1>
+        <div className="text-xs text-muted-foreground mb-2">Signaling: {getSignalingUrl()}</div>
         <div className="flex flex-col md:flex-row gap-3 items-center">
           <Button onClick={newMeeting} className="w-full md:w-auto">New meeting</Button>
           <div className="flex items-center gap-2 w-full">
