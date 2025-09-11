@@ -58,8 +58,8 @@ const MeetRoom = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="p-6 shadow-md lg:col-span-2">
+      <div className="container mx-auto px-0 py-0 grid grid-cols-1 gap-0">
+        <Card className="p-6 shadow-md rounded-none border-0">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-semibold">Live Call</h2>
             <span className="text-xs text-muted-foreground">You: {username}</span>
@@ -67,7 +67,7 @@ const MeetRoom = () => {
           {roomId && <VideoConference roomId={roomId} displayName={username} signalingUrl={signalingUrl} />}
         </Card>
 
-        <Card className="p-6 shadow-md lg:sticky lg:top-6 h-fit">
+        <Card className="p-6 shadow-md">
           <h2 className="text-base font-semibold">Document</h2>
           <p className="text-sm text-muted-foreground mb-4">Create a new document or continue editing an existing one alongside your call.</p>
           <div className="flex flex-wrap gap-2 mb-4">

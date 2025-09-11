@@ -197,8 +197,8 @@ export default function VideoConference({ roomId, displayName, signalingUrl }: P
         <button className="px-3 py-2 rounded border" onClick={toggleMic}>{micEnabled ? 'Mute' : 'Unmute'}</button>
         <button className="px-3 py-2 rounded border" onClick={toggleCam}>{camEnabled ? 'Camera Off' : 'Camera On'}</button>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-        <video ref={localVideoRef} autoPlay playsInline muted className="w-full rounded bg-black aspect-video" />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+        <video ref={localVideoRef} autoPlay playsInline muted className="w-full rounded bg-black aspect-video md:aspect-[16/9]" />
         {participants.map((p) => (
           <div key={p.clientId} className="relative">
             <video id={`remote-${p.clientId}`} autoPlay playsInline className="w-full rounded bg-black aspect-video" />
