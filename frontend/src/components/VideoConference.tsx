@@ -36,8 +36,8 @@ export default function VideoConference({ roomId, displayName, signalingUrl }: P
   const teardownPeer = useCallback((remoteId: string) => {
     const record = peersRef.current.get(remoteId);
     if (!record) return;
-    try { record.connection.close(); } catch (e) {}
-    try { record.stream.getTracks().forEach((t) => t.stop()); } catch (e) {}
+    try { record.connection.close(); } catch (e) { console.warn('close peer failed', e); }
+    try { record.stream.getTracks().forEach((t) => t.stop()); } catch (e) { console.warn('stop tracks failed', e); }
     peersRef.current.delete(remoteId);
   }, []);
 
@@ -53,8 +53,23 @@ export default function VideoConference({ roomId, displayName, signalingUrl }: P
     }
 
     pc.ontrack = (ev) => {
-      const video = document.getElementById(`remote-${remoteId}`) as HTMLVideoElement | null;
-      if (video && !video.srcObject) video.srcObject = ev.streams[0];
+      // Save stream reference
+      const rec = peersRef.current.get(remoteId);
+      if (rec) rec.stream = ev.streams[0];
+      // Try immediate attach
+      const attach = () => {
+        const video = document.getElementById(`remote-${remoteId}`) as HTMLVideoElement | null;
+        if (video && !video.srcObject) {
+          video.srcObject = ev.streams[0];
+          return true;
+        }
+        return false;
+      };
+      if (!attach()) {
+        // Retry shortly in case element not yet rendered
+        setTimeout(() => attach(), 50);
+        setTimeout(() => attach(), 200);
+      }
     };
     pc.onicecandidate = (ev) => {
       if (ev.candidate) send({ type: 'ice-candidate', targetClientId: remoteId, payload: ev.candidate });
@@ -124,14 +139,14 @@ export default function VideoConference({ roomId, displayName, signalingUrl }: P
         case 'ice-candidate': {
           const fromId: string = data.fromClientId;
           const rec = peersRef.current.get(fromId);
-          if (rec) try { await rec.connection.addIceCandidate(new RTCIceCandidate(data.payload)); } catch (e) {}
+          if (rec) try { await rec.connection.addIceCandidate(new RTCIceCandidate(data.payload)); } catch (e) { console.warn('addIceCandidate failed', e); }
           break;
         }
       }
     };
 
     return () => {
-      try { ws.close(); } catch (e) {}
+      try { ws.close(); } catch (e) { console.warn('ws close failed', e); }
       wsRef.current = null;
     };
   }, [roomId, signalingUrl, joined, createOfferTo, ensurePeer, teardownPeer, send]);
